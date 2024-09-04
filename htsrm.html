@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Succeed in Your New Remote Marketing Role</title>
+    <style>
+        /* Basic Reset */
+        body, h1, h4, p, ul, li, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 80px; /* Make space for sticky header */
+        }
+
+        /* Container styling */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: -webkit-sticky; /* For Safari */
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+            text-align: center;
+            margin: 0 15%; /* 15% gap on left and right */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better separation */
+        }
+
+        .sticky-header h1 {
+            font-size: 2.5em;
+            color: #029c91; /* Teal */
+            margin-bottom: 10px;
+        }
+
+        .progress-tracker {
+            font-size: 1.2em;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #e1e1e1;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 30px;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            background-color: #8e24aa; /* Dark Purple */
+            width: 0;
+            transition: width 0.3s;
+        }
+
+        /* Topics list styling */
+        .topics {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .topic {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+        }
+
+        .topic-content {
+            flex: 1;
+        }
+
+        .topic h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .topic ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .mark-complete-btn {
+            width: 30%;
+            background-color: #e1e1e1;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 1em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .mark-complete-btn.completed {
+            background-color: #029c91; /* Teal */
+            color: #fff;
+        }
+
+        .open-topic-btn {
+            background-color: #8e24aa; /* Dark Purple */
+            color: #fff;
+            border: none;
+            border-radius: 0; /* Square corners */
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .open-topic-btn:hover {
+            background-color: #7a1b7b; /* Darker shade of purple */
+        }
+
+        /* Claim Certificate Button */
+        #claim-certificate {
+            background-color: #029c91; /* Teal */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #claim-certificate:hover {
+            background-color: #027a71; /* Darker Teal */
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-header">
+        <h1>How to Succeed in Your New Remote Marketing Role</h1>
+        <div class="progress-tracker">
+            Progress: <span id="progress-percentage">0%</span>
+            <div class="progress-bar">
+                <span id="progress-bar-fill"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="topics">
+            <!-- Topic 1 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>1. Understanding Remote Work</h4>
+                    <ul>
+                        <li>Define remote work and its key components.</li>
+                        <li>Understand the benefits and challenges of remote work.</li>
+                        <li>Identify different types of remote work setups.</li>
+                        <li>Learn about remote work tools and technologies.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='understanding-remote-work.html'">Open Topic</button>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>2. Setting Up Your Remote Workspace</h4>
+                    <ul>
+                        <li>Create a productive and comfortable workspace.</li>
+                        <li>Organize your workspace to enhance efficiency.</li>
+                        <li>Ensure you have the necessary equipment and technology.</li>
+                        <li>Maintain a healthy work environment.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='setting-up-your-remote-workspace.html'">Open Topic</button>
+            </div>
+
+            <!-- Topic 3 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>3. Communication Strategies for Remote Teams</h4>
+                    <ul>
+                        <li>Utilize effective communication tools.</li>
+                        <li>Establish clear communication protocols.</li>
+                        <li>Foster team collaboration and engagement.</li>
+                        <li>Handle conflicts and misunderstandings effectively.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='communication-strategies-for-remote-teams.html'">Open Topic</button>
+            </div>
+
+            <!-- Topic 4 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>4. Time Management and Productivity</h4>
+                    <ul>
+                        <li>Implement time management techniques.</li>
+                        <li>Set and achieve productivity goals.</li>
+                        <li>Use productivity tools effectively.</li>
+                        <li>Maintain a balance between work and personal life.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='time-management-and-productivity.html'">Open Topic</button>
+            </div>
+
+            <!-- Topic 5 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>5. Building and Maintaining Relationships with Your Team</h4>
+                    <ul>
+                        <li>Develop strong professional relationships with remote colleagues.</li>
+                        <li>Engage in regular and meaningful interactions.</li>
+                        <li>Promote inclusivity and inclusivity in a remote team setting.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='building-and-maintaining-relationships-with-your-team.html'">Open Topic</button>
+            </div>
+
+            <!-- Topic 6 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>6. Maintaining Work-Life Balance</h4>
+                    <ul>
+                        <li>Set clear boundaries between work and personal time.</li>
+                        <li>Develop routines and habits for work-life balance.</li>
+                        <li>Utilize self-care practices to manage stress.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='maintaining-work-life-balance.html'">Open Topic</button>
+            </div>
+
+            <!-- Topic 7 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>7. Developing a Remote Work Routine</h4>
+                    <ul>
+                        <li>Establish a daily routine that supports productivity and well-being.</li>
+                        <li>Incorporate regular breaks and physical activity into your workday.</li>
+                        <li>Develop habits for maintaining focus and motivation.</li>
+                        <li>Adapt your routine to accommodate different time zones and global teams.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='maintaining-work-life-balance.html'">Open Topic</button>
+            </div>
+
+            <!-- Topic 8 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>8. Handling Remote Work Challenges</h4>
+                    <ul>
+                        <li>Identify common challenges faced in remote work environments.</li>
+                        <li>Develop strategies for overcoming issues such as isolation and burnout.</li>
+                        <li>Learn to manage work-related stress and maintain mental health.</li>
+                        <li>Seek support and resources when needed.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='maintaining-work-life-balance.html'">Open Topic</button>
+            </div>
+
+            <!-- Topic 9 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>9. Project Management for Remote Teams</h4>
+                    <ul>
+                        <li>Understand the principles of remote project management.</li>
+                        <li>Utilize project management tools and techniques to keep projects on track.</li>
+                        <li>Communicate project goals, timelines, and expectations clearly.</li>
+                        <li>Monitor progress and adjust plans as needed to ensure successful project delivery.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='maintaining-work-life-balance.html'">Open Topic</button>
+            </div>
+
+            <!-- Topic 10 -->
+            <div class="topic">
+                <div class="topic-content">
+                    <h4>10. Personal and Professional Growth in a Remote Role</h4>
+                    <ul>
+                        <li>Set personal and professional growth goals.</li>
+                        <li>Seek out opportunities for learning and development.</li>
+                        <li>Build a strong personal brand and network within the remote work community.</li>
+                        <li>Evaluate and adjust your career path based on remote work experiences and achievements.</li>
+                    </ul>
+                </div>
+                <button class="mark-complete-btn" onclick="markComplete(this)">Mark as Complete</button>
+                <button class="open-topic-btn" onclick="window.location.href='maintaining-work-life-balance.html'">Open Topic</button>
+            </div>
+
+            <!-- Claim Certificate Button -->
+            <button id="claim-certificate" class="claim-certificate">Claim Certificate</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for handling "Mark as Complete" buttons and progress bar
+        const buttons = document.querySelectorAll('.mark-complete-btn');
+        const progressBarFill = document.getElementById('progress-bar-fill');
+        const progressPercentage = document.getElementById('progress-percentage');
+        const claimButton = document.getElementById('claim-certificate');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('completed');
+                updateProgress();
+            });
+        });
+
+        function updateProgress() {
+            const total = buttons.length;
+            const completed = document.querySelectorAll('.mark-complete-btn.completed').length;
+            const percentage = (completed / total) * 100;
+
+            progressBarFill.style.width = percentage + '%';
+            progressPercentage.textContent = Math.round(percentage) + '%';
+
+            // Enable or disable the Claim Certificate button
+            if (percentage === 100) {
+                claimButton.classList.add('active');
+                claimButton.disabled = false;
+                claimButton.style.cursor = 'pointer';
+            } else {
+                claimButton.classList.remove('active');
+                claimButton.disabled = true;
+                claimButton.style.cursor = 'not-allowed';
+            }
+        }
+    </script>
+</body>
+</html>

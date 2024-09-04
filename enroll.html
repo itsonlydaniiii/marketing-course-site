@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll</title>
+    <style>
+        /* Basic resets */
+        body, h1, h3, p {
+            margin: 0;
+            padding: 2;
+        }
+
+        /*Landing Page H1*/
+        #Header {
+            font-size: 30px;
+            color: black;
+        }
+
+        /* Styling for the container */
+        .container {
+            max-width: 77%;
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 20px; /* Add padding for spacing */
+        }
+
+        /* Styling for the heading */
+/*        #landing-h {
+/*            font-size: 2em; /* Adjust as needed for your design */
+/*            margin-bottom: 20px; /* Space between heading and paragraph */
+/*            color: #333; /* Dark text color for readability */
+/*            text-align: left; /* Center align the heading */
+/*        }
+
+        /* Styling for the paragraph */
+        .container p {
+            line-height: 1.6; /* Improve readability with line spacing */
+            color: #666; /* Lighter text color for contrast */
+            text-align: center; /* Center align the text */
+            width: 100%; /* Take full width of the container */
+            max-width: 100%; /* Ensure it does not exceed 70% of the page width */
+            margin: 0 auto; /* Center the paragraph horizontally */
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        /* Main font family and background color for the page */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: white;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+            padding: 0 20px; /* Padding for the entire body */
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            position: fixed; /* Fixed position to stick to the top */
+            top: 0;
+            left: 0;
+            right: 0;
+            max-width: 1200px; /* Max width to prevent stretching */
+            margin: 0 auto; /* Center the navbar */
+            font-size: 18px;
+            background-color: #ffffff; /* White background color for the navbar */
+            display: flex; /* Use Flexbox for layout */
+            justify-content: space-between; /* Space between logo and links */
+            align-items: center; /* Vertically align items */
+            padding: 10px 20px; /* Default padding */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow effect for visual separation */
+            z-index: 1000; /* Ensures navbar is above other content */
+        }
+
+        .navbar img {
+            width: 200px; /* Width of the company logo */
+            height: auto; /* Auto height to maintain aspect ratio */
+        }
+
+        /* Styling for nav links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #8e24aa; /* Dark Purple color for text links */
+            margin: 0 15px;
+            padding: 5px 10px;
+            border: 1px solid transparent; /* Default border for buttons */
+            border-radius: 4px; /* Rounded corners for buttons */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effects */
+        }
+
+        .nav-links a:hover {
+            background-color: #9b51df; /* Light Purple color on hover */
+            color: white;
+        }
+
+        .navbar .home {
+            color: #8e24aa; /* Dark Purple color for the Home link */
+        }
+
+        .navbar .home:hover {
+            background-color: #9b51df; /* Light Purple color on hover for Home link */
+            color: #ffffff;
+        }
+
+        /* Styling for the sign-in and sign-up buttons */
+        .navbar .sign-in-btn {
+            border: 2px solid #8e24aa; /* Set dark purple border for Sign In */
+            background-color: #ffffff; /* Set background color to white */
+            color: #8e24aa; /* Set text color to dark purple */
+            padding: 5px 10px; /* Add padding for button-like appearance */
+            border-radius: 5px; /* Slightly round the corners */
+            font-size: 16px; /* Font size for the button */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effects */
+            margin-right: 15px; /* Space between the buttons */
+        }
+
+        .navbar .sign-in-btn:hover {
+            background-color: #8e24aa; /* Dark Purple background on hover */
+            color: white;
+        }
+
+        .navbar .sign-up-btn {
+            border: 2px solid #8e24aa; /* Set dark purple border for Sign Up */
+            background-color: #8e24aa; /* Set background color to dark purple */
+            color: #ffffff; /* Set text color to white */
+            padding: 5px 10px; /* Add padding for button-like appearance */
+            border-radius: 5px; /* Slightly round the corners */
+            font-size: 16px; /* Font size for the button */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effects */
+        }
+
+        .navbar .sign-up-btn:hover {
+            background-color: #7b1fa2; /* Dark Purple background on hover */
+            color: white;
+        }
+
+        /* Burger menu styles */
+        .burger {
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 21px; /* Adjust for three 7px bars */
+            width: 30px;
+        }
+
+        .burger div {
+            height: 3px;
+            background-color: #8e24aa; /* Dark Purple color for burger lines */
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* CSS for hiding and showing nav links in mobile view */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff; /* White background for the dropdown */
+                flex-direction: column;
+                align-items: center;
+                display: none; /* Hidden by default */
+            }
+
+            .nav-links a {
+                margin: 15px 0;
+            }
+
+            .burger {
+                display: flex;
+            }
+        }
+
+        /* When burger is active, show the nav links */
+        .nav-links.active {
+            display: flex;
+        }
+
+        /* Main content styling */
+        .container {
+            margin-top: 120px; /* Adjusted for the fixed navbar */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 24px; /* Responsive font size for heading */
+            color: #8e24aa; /* Dark purple color for heading */
+        }
+
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .course-box {
+                width: 45%; /* Adjust width for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .course-box {
+                width: 100%; /* Full width for smartphones */
+            }
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1000;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with opacity */
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 15% auto;
+            /* Centered alignment */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            /* Responsive width */
+            border-radius: 10px;
+            /* Rounded corners */
+        }
+
+        /* Close button styling */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal content styling */
+        .modal-content h2 {
+            text-align: center;
+            color: #8e24aa;
+        }
+
+        .modal-content label {
+            margin-top: 10px;
+            color: #333333;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .modal-content button {
+            width: 100%;
+            background-color: #8e24aa;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-content button:hover {
+            background-color: #9b51df;
+        }
+
+        .modal-content p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .modal-content a {
+            color: #8e24aa;
+            text-decoration: none;
+        }
+
+        .modal-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main container styling */
+        .containers {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Styling for headings */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #8e24aa;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .start-learning-btn {
+            background-color: #029c91;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .start-learning-btn:hover {
+            background-color: #028e81;
+        }
+
+        /* Course topics styling */
+        .course-topics {
+            width: 80%;
+            max-width: 800px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .topic {
+            margin-bottom: 20px;
+        }
+
+        .topic h4 {
+            cursor: pointer;
+            background-color: #e1e1e1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .topic-content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-left: 2px solid #029c91;
+            background-color: #f9f9f9;
+        }
+
+        .topic-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .topic-content ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="index.html"><img src="/Users/itsonlydaniii/Desktop/TGTC L&D/logo.png" alt="Company Logo"></a>
+        <div class="nav-links">
+            <a href="index.html" class="home">Home</a> <!-- Home button -->
+            <a href="about.html">About</a>
+            <a href="courses.html">Courses</a>
+            <a href="contact.html">Contact Us</a>
+            <button class="sign-in-btn" id="signInBtn">Sign In</button>
+            <button class="sign-up-btn" id="signUpBtn">Sign Up</button>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+
+            <!-- Sign-Up Form -->
+            <form id="signUpForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <!-- Submit Button -->
+                <button type="submit">Start your learning journey!</button>
+            </form>
+            <p>Already have an account? <a href="#" id="signInLink">Sign In</a></p>
+        </div>
+    </div>
+
+    <!-- Modal for Sign In -->
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="signUpLink">Sign Up</a></p>
+        </div>
+    </div>
+
+        <!-- Burger menu icon -->
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h3>Exclusive for The Global Talent Co Community</h3>
+        <h1>How to Succeed in Your New Remote Marketing Role</h1>
+        <p>The course "How to Succeed in Your New Remote Marketing Role" is designed to equip professionals with the essential skills and 
+            strategies needed to thrive in a remote marketing environment. Participants will explore key topics such as setting up an 
+            effective home office, mastering remote communication and collaboration tools, managing time and productivity, 
+            and navigating common challenges of remote work. Through practical advice and hands-on learning, this course will 
+            help you build strong virtual relationships, utilize marketing tools effectively, and develop a routine that supports 
+            career growth and personal well-being. Whether you're new to remote work or looking to enhance your current remote practices, 
+            this course provides valuable insights to help you excel in your remote marketing role.</p><br/>
+        <a href="htsrm.html" class="start-learning-btn">Start Learning</a><br/><br/>
+
+        <div class="course-topics" style="width: 70%; margin: 0 auto; padding: 20px;">
+            <!-- Example topic structure -->
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">1. Understanding Remote Work Dynamics</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Recognize the benefits and challenges of remote work.</li>
+                        <li>Identify key tools and technologies for remote collaboration.</li>
+                        <li>Develop strategies to stay productive and manage time effectively.</li>
+                        <li>Understand how remote work impacts team dynamics and communication.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">2. Setting Up Your Remote Workspace</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Design an ergonomic and efficient home office setup.</li>
+                        <li>Choose and set up essential equipment and software for remote work.</li>
+                        <li>Create a dedicated workspace that minimizes distractions.</li>
+                        <li>Implement best practices for maintaining a work-life balance at home.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">3. Effective Communication in a Remote Environment</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Master virtual communication tools like Slack, Zoom, and Microsoft Teams.</li>
+                        <li>Develop skills for clear and concise written communication.</li>
+                        <li>Learn techniques for effective virtual meetings and presentations.</li>
+                        <li>Understand the importance of regular updates and status reports.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">4. Time Management and Productivity</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Use time management tools and techniques to structure your workday.</li>
+                        <li>Prioritize tasks and set achievable goals.</li>
+                        <li>Implement productivity strategies such as the Pomodoro Technique or time blocking.</li>
+                        <li>Overcome common remote work distractions and procrastination.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">5. Building and Maintaining Relationships with Your Team</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Foster strong virtual relationships with colleagues and managers.</li>
+                        <li>Learn strategies for networking and building rapport remotely.</li>
+                        <li>Develop techniques for providing and receiving constructive feedback.</li>
+                        <li>Understand cultural differences and their impact on remote team interactions.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">6. Navigating Remote Marketing Tools and Platforms</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Gain proficiency in essential marketing tools such as Google Analytics, HubSpot, and social media management platforms.</li>
+                        <li>Understand how to leverage data and analytics to drive marketing decisions.</li>
+                        <li>Learn to manage and optimize digital campaigns remotely.</li>
+                        <Li>Explore new technologies and trends in remote marketing.</Li>
+                    </ul>
+                </div>
+            </div>
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">7. Developing a Remote Work Routine</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Establish a daily routine that supports productivity and well-being.</li>
+                        <li>Incorporate regular breaks and physical activity into your workday.</li>
+                        <li>Develop habits for maintaining focus and motivation.</li>
+                        <li>Adapt your routine to accommodate different time zones and global teams.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">8. Handling Remote Work Challenges</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Identify common challenges in remote work such as isolation, burnout, and miscommunication.</li>
+                        <li>Develop strategies for overcoming these challenges.</li>
+                        <li>Learn to manage stress and maintain mental health in a remote setting.</li>
+                        <li>Seek out and utilize support resources and communities</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">9. Effective Project Management Remotely</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Learn to use project management tools like Asana, Trello, or Monday.com. </li>
+                        <li>Develop skills for managing projects and deadlines remotely.</li>
+                        <li>Understand how to collaborate effectively on project tasks and deliverables.</li>
+                        <li>Implement strategies for tracking project progress and ensuring team accountability.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="topic" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <h4 style="font-size: 1.2em; margin-bottom: 10px;">10. Career Growth and Development in a Remote Role</h4>
+                <div class="topic-content">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Set and achieve professional development goals while working remotely.</li>
+                        <li>Seek out online learning and growth opportunities.</li>
+                        <li>Develop a plan for career advancement and networking in a remote environment.</li>
+                        <li>Learn how to navigate performance evaluations and career progression remotely.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle dropdowns
+        document.querySelectorAll('.topic h4').forEach(topicHeader => {
+            topicHeader.addEventListener('click', () => {
+                const content = topicHeader.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

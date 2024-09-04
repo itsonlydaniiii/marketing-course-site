@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* Basic resets */
+        body, h1, h3, p {
+            margin: 0;
+            padding: 2;
+        }
+
+        /*Landing Page H1*/
+        #Header {
+            font-size: 30px;
+            color: black;
+        }
+
+        /* Styling for the container */
+        .container {
+            max-width: 77%;
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 20px; /* Add padding for spacing */
+        }
+
+        /* Styling for the heading */
+        #landing-h {
+            font-size: 2em; /* Adjust as needed for your design */
+            margin-bottom: 20px; /* Space between heading and paragraph */
+            color: #333; /* Dark text color for readability */
+            text-align: center; /* Center align the heading */
+        }
+
+        /* Styling for the paragraph */
+        #par-h {
+            font-size: 1.2em; /* Adjust as needed for readability */
+            line-height: 1.6; /* Improve readability with line spacing */
+            color: #666; /* Lighter text color for contrast */
+        }
+
+        /* Main font family and background color for the page */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: white;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+            padding: 0 20px; /* Padding for the entire body */
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            position: fixed; /* Fixed position to stick to the top */
+            top: 0;
+            left: 0;
+            right: 0;
+            max-width: 1200px; /* Max width to prevent stretching */
+            margin: 0 auto; /* Center the navbar */
+            font-size: 18px;
+            background-color: #ffffff; /* White background color for the navbar */
+            display: flex; /* Use Flexbox for layout */
+            justify-content: space-between; /* Space between logo and links */
+            align-items: center; /* Vertically align items */
+            padding: 10px 20px; /* Default padding */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow effect for visual separation */
+            z-index: 1000; /* Ensures navbar is above other content */
+        }
+
+        .navbar img {
+            width: 200px; /* Width of the company logo */
+            height: auto; /* Auto height to maintain aspect ratio */
+        }
+
+        /* Styling for nav links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #8e24aa; /* Dark Purple color for text links */
+            margin: 0 15px;
+            padding: 5px 10px;
+            border: 1px solid transparent; /* Default border for buttons */
+            border-radius: 4px; /* Rounded corners for buttons */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effects */
+        }
+
+        .nav-links a:hover {
+            background-color: #9b51df; /* Light Purple color on hover */
+            color: white;
+        }
+
+        .navbar .home {
+            color: #8e24aa; /* Dark Purple color for the Home link */
+        }
+
+        .navbar .home:hover {
+            background-color: #9b51df; /* Light Purple color on hover for Home link */
+            color: #ffffff;
+        }
+
+        /* Styling for the sign-in and sign-up buttons */
+        .navbar .sign-in-btn {
+            border: 2px solid #8e24aa; /* Set dark purple border for Sign In */
+            background-color: #ffffff; /* Set background color to white */
+            color: #8e24aa; /* Set text color to dark purple */
+            padding: 5px 10px; /* Add padding for button-like appearance */
+            border-radius: 5px; /* Slightly round the corners */
+            font-size: 16px; /* Font size for the button */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effects */
+            margin-right: 15px; /* Space between the buttons */
+        }
+
+        .navbar .sign-in-btn:hover {
+            background-color: #8e24aa; /* Dark Purple background on hover */
+            color: white;
+        }
+
+        .navbar .sign-up-btn {
+            border: 2px solid #8e24aa; /* Set dark purple border for Sign Up */
+            background-color: #8e24aa; /* Set background color to dark purple */
+            color: #ffffff; /* Set text color to white */
+            padding: 5px 10px; /* Add padding for button-like appearance */
+            border-radius: 5px; /* Slightly round the corners */
+            font-size: 16px; /* Font size for the button */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effects */
+        }
+
+        .navbar .sign-up-btn:hover {
+            background-color: #7b1fa2; /* Dark Purple background on hover */
+            color: white;
+        }
+
+        /* Burger menu styles */
+        .burger {
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 21px; /* Adjust for three 7px bars */
+            width: 30px;
+        }
+
+        .burger div {
+            height: 3px;
+            background-color: #8e24aa; /* Dark Purple color for burger lines */
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* CSS for hiding and showing nav links in mobile view */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff; /* White background for the dropdown */
+                flex-direction: column;
+                align-items: center;
+                display: none; /* Hidden by default */
+            }
+
+            .nav-links a {
+                margin: 15px 0;
+            }
+
+            .burger {
+                display: flex;
+            }
+        }
+
+        /* When burger is active, show the nav links */
+        .nav-links.active {
+            display: flex;
+        }
+
+        /* Main content styling */
+        .container {
+            margin-top: 120px; /* Adjusted for the fixed navbar */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 24px; /* Responsive font size for heading */
+            color: #8e24aa; /* Dark purple color for heading */
+        }
+
+        .container p {
+            font-size: 16px;
+            margin: 20px 0;
+            color: #333333; /* Dark text color for readability */
+        }
+
+           /* Styling for the course boxes */
+           .course-container {
+            display: flex; /* Flexbox layout for horizontal alignment */
+            justify-content: space-around; /* Space between the boxes */
+            flex-wrap: wrap; /* Allows wrapping of boxes on smaller screens */
+            gap: 20px; /* Space between boxes */
+        }
+
+        .course-box {
+            background-color: #e1e1e1; /* White background color */
+            padding: 10px;
+            border-radius: 8px; /* Rounded corners for the box */
+            width: 30%; /* Width of each course box */
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow effect for visual separation */
+            margin: 20px 0; /* Margin for spacing */
+        }
+
+        .course-box h2 {
+            font-size: 20px; /* Responsive font size for course title */
+            margin: 10px 0;
+            color: #8e24aa; /* Dark purple color for course title */
+        }
+
+        .course-box img {
+            width: 100%; /* Responsive image width */
+            height: auto; /* Maintain aspect ratio */
+            display: block;
+            margin: 0 auto;
+            border-radius: 2px; /* Rounded corners for images */
+        }
+
+        .course-box h3 {
+            font-size: 18px; /* Responsive font size for course subtitle */
+            margin: 10px 0;
+            color: #333333; /* Dark text color for readability */
+        }
+
+        .course-box p {
+            font-size: 16px; /* Font size for the description */
+            margin: 10px 0;
+            color: #666666; /* Lighter text color for descriptions */
+        }
+
+        .course-box .enroll-button {
+            background-color: #029c91; /* Teal background color for the button */
+            color: white; /* White text color for the button */
+            border: none; /* No border for the button */
+            padding: 10px 20px; /* Adjusted padding for better spacing */
+            border-radius: 4px; /* Rounded corners for the button */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Button font size */
+            transition: background-color 0.3s; /* Smooth transition effect */
+            margin-top: 10px; /* Space above the button */
+        }
+
+        .course-box .enroll-button:hover {
+            background-color: #028e81; /* Slightly darker teal on hover */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .course-box {
+                width: 45%; /* Adjust width for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .course-box {
+                width: 100%; /* Full width for smartphones */
+            }
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1000;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with opacity */
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 15% auto;
+            /* Centered alignment */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            /* Responsive width */
+            border-radius: 10px;
+            /* Rounded corners */
+        }
+
+        /* Close button styling */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal content styling */
+        .modal-content h2 {
+            text-align: center;
+            color: #8e24aa;
+        }
+
+        .modal-content label {
+            margin-top: 10px;
+            color: #333333;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .modal-content button {
+            width: 100%;
+            background-color: #8e24aa;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-content button:hover {
+            background-color: #9b51df;
+        }
+
+        .modal-content p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .modal-content a {
+            color: #8e24aa;
+            text-decoration: none;
+        }
+
+        .modal-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="index.html"><img src="/Users/itsonlydaniii/Desktop/TGTC L&D/logo.png" alt="Company Logo"></a>
+        <div class="nav-links">
+            <a href="index.html" class="home">Home</a> <!-- Home button -->
+            <a href="about.html">About</a>
+            <a href="courses.html">Courses</a>
+            <a href="contact.html">Contact Us</a>
+            <button class="sign-in-btn" id="signInBtn">Sign In</button>
+            <button class="sign-up-btn" id="signUpBtn">Sign Up</button>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+
+            <!-- Sign-Up Form -->
+            <form id="signUpForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <!-- Submit Button -->
+                <button type="submit">Start your learning journey!</button>
+            </form>
+            <p>Already have an account? <a href="#" id="signInLink">Sign In</a></p>
+        </div>
+    </div>
+
+    <!-- Modal for Sign In -->
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="signUpLink">Sign Up</a></p>
+        </div>
+    </div>
+
+        <!-- Burger menu icon -->
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1 id="landing-h">Welcome to The Global Talent Co. Learning & Development</h1>
+        <p id="par-h" >Elevate your skills and advance your career with our expertly curated courses tailored specifically for remote professionals. Our programs are 
+            designed to provide you with practical knowledge and hands-on experience, ensuring you stay ahead in the ever-evolving global job market. 
+            Whether you're looking to master new technologies or enhance your existing skills, our comprehensive course offerings will support your 
+            professional growth and help you achieve your career goals.</p><br/><br/>
+            <img src="/Users/itsonlydaniii/Desktop/TGTC L&D/content.png" alt="About Us Image">
+    </div>
+
+        
+
+    <script>
+        // Get modal and button elements
+        const signInModal = document.getElementById("signInModal");
+        const signInBtn = document.getElementById("signInBtn");
+        const closeModal = document.getElementById("closeModal");
+
+        // Open modal
+        signInBtn.onclick = function() {
+            signInModal.style.display = "block";
+        }
+
+        // Close modal
+        closeModal.onclick = function() {
+            signInModal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the modal
+        window.onclick = function(event) {
+            if (event.target === signInModal) {
+                signInModal.style.display = "none";
+            }
+        }
+
+        // Get the modal element
+        var modal = document.getElementById("signUpModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("signUpBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Placeholder for the Sign-In link action
+        document.getElementById("signInLink").onclick = function () {
+            alert("Redirect to Sign In page (placeholder).");
+            // Replace the alert with actual navigation logic when the sign-in page is available
+        };
+        // JavaScript for toggling the burger menu
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Toggle the active class to show/hide menu
+        });
+    </script>
+</body>
+</html>
