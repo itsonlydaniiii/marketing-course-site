@@ -13,6 +13,7 @@ Courses Page: A comprehensive list of free marketing courses available to our me
 Contact Us Page: A way for members to get in touch with us for feedback and inquiries.
 
 #Key Challenges
+
 One of the most exciting challenges I encountered during this project was implementing the Courses Page with progress tracking. Here’s a brief overview of the challenges faced and solutions applied:
 - Progress Tracking Implementation: Developing a feature to track course completion progress involved creating a dynamic interface that updates as users complete different modules. This required extensive use of JavaScript to handle user interactions and maintain accurate progress records.
 - Responsive Design: Ensuring that the website remains user-friendly across various devices and screen sizes was a significant challenge. I used CSS media queries and flexible layouts to address this.
